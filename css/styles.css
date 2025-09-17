@@ -98,4 +98,102 @@ footer button:hover {
     text-align: center;
     aimation: fadeIn 1s ease-in
 }
+.cover h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    transition: opacity 0.5s ease;
+}
+.tips {
+    text-align: center;
+    padding: 2rem
+    background: white;
+    margin: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.tips h2 {
+    font-family: 'Open Sans', sans-serif;
+    color: #4CAF50;
+    margin-bottom: 1rem
+}
+.tips p {
+    font-size: 1.2rem;
+    opacity: 0
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.tips p.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@media (max-width: 768px) {
+    .cover h1 { font-size: 1.8rem; }
+    .tips { margin: 1rem 0.5rem; }
+}
 
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+.footer-links a {
+    color: white;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: #2196F3;
+}
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+.footer-social a {
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+.footer-social a:hover {
+    transform: scale(1.2);
+}
+.footer-content form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 400px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.footer-content form.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.footer-content input, .footer-content button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.footer-content input {
+    flex: 1;
+    background: #fff;
+    color: #333;
+}
+.footer-content button {
+    background: #2196F3;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
