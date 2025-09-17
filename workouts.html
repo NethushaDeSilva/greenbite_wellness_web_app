@@ -27,4 +27,36 @@
             <div class="hamburger">☰</div>
         </nav>
     </header> 
-</body>
+    <main>
+        <section class="workouts reveal">
+            <h2>Workout Generator</h2>
+            <form id="workout-form">
+                <label for="body-part">Body Part:</label>
+                <select id="body-part" required>
+                    <option value="" disabled selected>Select body part</option>
+                    <option value="arms">Arms</option>
+                    <option value="legs">Legs</option>
+                    <option value="full-body">Full Body</option>
+                </select>
+                <label for="equipment">Equipment:</label>
+                <select id="equipment" required>
+                    <option value="" disabled selected>Select equipment</option>
+                    <option value="none">None</option>
+                    <option value="dumbbells">Dumbbells</option>
+                    <option value="resistance-band">Resistance Band</option>
+                </select>
+                <button type="submit">Generate Workout</button>
+            </form>
+            <div class="workout-result" id="workout-result" style="display: none;">
+                <h3>Your Workout Plan</h3>
+                <ul id="workout-list"></ul>
+                <div class="timer">
+                    <h4>Exercise Timer</h4>
+                    <p id="timer-display" class="timer-pulse">00:30</p>
+                    <button id="start-timer">Start</button>
+                    <button id="reset-timer">Reset</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
