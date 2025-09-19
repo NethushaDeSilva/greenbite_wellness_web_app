@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
     togglePauseBtn.addEventListener('click', () => {
         if (isPaused) {
             const duration = parseInt(document.getElementById('duration').value) || 5;
-            startOrResumeTimer(duration);
+            startOrResumeTimer(duration)
         } else {
             togglePause();
         }
@@ -213,12 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
     durationInput.addEventListener('change', () => {
         if (!isRunning && !isPaused) {
             const duration = parseInt(durationInput.value) || 5;
-            timeLeft = duration * 60;
+            timeLeft = duration * 60
             document.getElementById('timer-display').textContent = formatTime(timeLeft);
             console.log('Duration changed to:', duration);
         }
     });
     rainBtn.addEventListener('click', () => toggleSound('rain-sound'));
     oceanBtn.addEventListener('click', () => toggleSound('ocean-sound'));
-    console.log('Initialization complete. Ready for use.');
+    console.log('Initialization complete. Ready for use.')
 });
