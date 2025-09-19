@@ -137,3 +137,113 @@
     background: #388E3C;
     transform: scale(1.05);
 }
+.sound-buttons button.active {
+    background: #2E7D32;
+}
+.session-history {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.session-history h3 {
+    font-family: 'Open Sans', sans-serif;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+.session-history ul {
+    list-style: none;
+    padding: 0;
+}
+.session-history li {
+    background: #f9f9f9;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 4px;
+}
+@media (max-width: 768px) {
+    .mindfulness {
+        padding: 1rem;
+    }
+    #breath-circle {
+        width: 150px;
+        height: 150px;
+    }
+    .duration-group {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 0.3rem;
+    }
+    .timer-controls input {
+        width: 60px;
+    }
+    .button-group button, .sound-buttons button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        max-width: 100px;
+    }
+    #breath-text {
+        font-size: 1rem;
+    }
+    #timer-display {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 480px) {
+    .mindfulness {
+        padding: 0.5rem;
+    }
+    #breath-circle {
+        width: 120px;
+        height: 120px;
+    }
+    .timer-controls label {
+        font-size: 0.9rem;
+    }
+    .timer-controls input {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+        width: 50px;
+    }
+    .button-group button, .sound-buttons button {
+        padding: 0.4rem;
+        font-size: 0.8rem;
+        max-width: 80px;
+    }
+    #timer-display {
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 360px) {
+    .mindfulness {
+        padding: 0.3rem;
+    }
+    #breath-circle {
+        width: 100px;
+        height: 100px;
+    }
+    .timer-controls label {
+        font-size: 0.8rem;
+    }
+    .timer-controls input {
+        font-size: 0.8rem;
+        width: 45px;
+    }
+    .button-group button, .sound-buttons button {
+        padding: 0.3rem;
+        font-size: 0.7rem;
+        max-width: 70px;
+    }
+    #breath-text {
+        font-size: 0.9rem;
+    }
+    #timer-display {
+        font-size: 1rem;
+    }
+    .session-history {
+        padding: 0.5rem;
+    }
+    .session-history li {
+        font-size: 0.8rem;
+    }
+}
