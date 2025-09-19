@@ -36,5 +36,23 @@ function toggleSound(soundId) {
     }
 }
 
-
-        
+function startOrResumeTimer(duration) {
+    console.log(`Start/Resume button clicked. ${isPaused ? 'Resuming' : 'Starting'} timer with duration: ${duration} minutes. Remaining time: ${timeLeft} seconds`);
+    clearInterval(timerInterval);
+    clearInterval(breathInterval);
+    if (isPaused) {
+        isPaused = false;
+    } else {
+        timeLeft = duration * 60;
+    }
+    isRunning = true;
+    const timerDisplay = document.getElementById('timer-display');
+    const breathCircle = document.getElementById('breath-circle');
+    const breathText = document.getElementById('breath-text');
+    const togglePauseBtn = document.getElementById('toggle-pause');
+    const startBtn = document.getElementById('start-timer');
+    if (!timerDisplay || !breathCircle || !breathText || !togglePauseBtn || !startBtn) {
+        console.error('Timer elements not found:', { timerDisplay, breathCircle, breathText, togglePauseBtn, startBtn });
+        alert('Error: Timer components missing. Please refresh the page.');
+        return;
+    }
