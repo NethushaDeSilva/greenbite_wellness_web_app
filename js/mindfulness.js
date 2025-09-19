@@ -159,3 +159,66 @@ function resetTimer() {
         }
     });
 }
+
+function loadHistory() {
+    console.log('Loading session history from localStorage.');
+    const historyList = document.getElementById('history-list');
+    const sessionHistory = document.getElementById('session-history');
+    if (!historyList || !sessionHistory) {
+        console.error('History elements not found.');
+        return;
+    }
+    try {
+        const sessions = JSON.parse(localStorage.getItem('meditationSessions')) || [];
+        historyList.innerHTML = sessions.map(s => `<li>${s.duration} min on ${new Date(s.timestamp).toLocaleString()}</li>`).join('');
+        sessionHistory.style.display = sessions.length ? 'block' : 'none';
+        console.log('History loaded:', sessions);
+    } catch (e) {
+        console.error('Error loading history:', e);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Mindfulness page loaded. Initializing...');
+    const startBtn = document.getElementById('start-timer');
+    const togglePauseBtn = document.getElementById('toggle-pause');
+    const resetBtn = document.getElementById('reset-timer');
+    const durationInput = document.getElementById('duration');
+    const rainBtn = document.getElementById('rain-sound');
+    const oceanBtn = document.getElementById('ocean-sound');
+    if (!startBtn || !togglePauseBtn || !resetBtn || !durationInput || !rainBtn || !oceanBtn) {
+        console.error('Mindfulness elements not found:', { startBtn, togglePauseBtn, resetBtn, durationInput, rainBtn, oceanBtn });
+        alert('Error: Page components missing. Please check file paths and refresh.');
+        return;
+    }
+    loadHistory();
+    startBtn.addEventListener('click', () => {
+        const duration = parseInt(durationInput.value);
+        if (duration < 1 || duration > 15 || isNaN(duration)) {
+            console.warn('Invalid duration entered:', duration);
+            alert('Please enter a duration between 1 and 15 minutes.');
+            return;
+        }
+        startOrResumeTimer(duration);
+    });
+    togglePauseBtn.addEventListener('click', () => {
+        if (isPaused) {
+            const duration = parseInt(document.getElementById('duration').value) || 5;
+            startOrResumeTimer(duration);
+        } else {
+            togglePause();
+        }
+    });
+    resetBtn.addEventListener('click', resetTimer);
+    durationInput.addEventListener('change', () => {
+        if (!isRunning && !isPaused) {
+            const duration = parseInt(durationInput.value) || 5;
+            timeLeft = duration * 60;
+            document.getElementById('timer-display').textContent = formatTime(timeLeft);
+            console.log('Duration changed to:', duration);
+        }
+    });
+    rainBtn.addEventListener('click', () => toggleSound('rain-sound'));
+    oceanBtn.addEventListener('click', () => toggleSound('ocean-sound'));
+    console.log('Initialization complete. Ready for use.');
+});
