@@ -80,3 +80,13 @@ const recipes = [
         steps: ["Blend gotu kola with water.", "Cook rice with gotu kola juice.", "Add coconut milk and salt.", "Stir until thick."],
         nutrition: { calories: 150, protein: 3, carbs: 20, fat: 5 }
     },
+    {
+        id: 10,
+        title: "Fish Ambul Thiyal",
+        category: "Dinner",
+        desc: "A low-calorie, tangy fish curry with tuna.",
+        ingredients: ["200g tuna", "1 tbsp tamarind paste", "1 tsp black pepper", "1 tsp turmeric", "1 onion"],
+        steps: ["Marinate tuna with spices and tamarind.", "Sauté onion.", "Add tuna and cook until done.", "Serve with rice."],
+        nutrition: { calories: 180, protein: 20, carbs: 5, fat: 8 }
+    }
+];
