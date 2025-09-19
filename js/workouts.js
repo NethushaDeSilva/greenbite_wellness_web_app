@@ -69,3 +69,51 @@ const workouts = {
         ]
     }
 };
+
+let timerInterval;
+let timeLeft = 30; // 30 seconds for exercise/rest
+
+function startTimer() {
+    clearInterval(timerInterval);
+    timeLeft = 30;
+    const timerDisplay = document.getElementById('timer-display');
+    timerDisplay.textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
+    timerDisplay.classList.add('timer-pulse');
+    timerInterval = setInterval(() => {
+        timeLeft--;
+        if (timeLeft < 0) {
+            clearInterval(timerInterval);
+            timerDisplay.textContent = 'Done!';
+            timerDisplay.classList.remove('timer-pulse');
+            return;
+        }
+        timerDisplay.textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
+    }, 1000);
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    timeLeft = 30;
+    const timerDisplay = document.getElementById('timer-display');
+    timerDisplay.textContent = `00:${timeLeft.toString().padStart(2, '0')}`;
+    timerDisplay.classList.remove('timer-pulse');
+}
+
+document.getElementById('workout-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const bodyPart = document.getElementById('body-part').value;
+    const equipment = document.getElementById('equipment').value;
+    if (!bodyPart || !equipment) {
+        alert('Please select both body part and equipment.');
+        return;
+    }
+    const workoutList = document.getElementById('workout-list');
+    const selectedWorkouts = workouts[bodyPart][equipment];
+    workoutList.innerHTML = selectedWorkouts.map(w => `<li>${w}</li>`).join('');
+    document.getElementById('workout-result').style.display = 'block';
+    saveToLocal('workoutPrefs', { bodyPart, equipment, timestamp: new Date().toISOString() });
+    resetTimer();
+});
+
+document.getElementById('start-timer').addEventListener('click', startTimer);
+document.getElementById('reset-timer').addEventListener('click', resetTimer);
