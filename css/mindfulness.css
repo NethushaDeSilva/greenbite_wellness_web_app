@@ -23,3 +23,117 @@
     text-align: center;
     margin-bottom: 2rem;
 }
+#breath-circle {
+    width: 200px;
+    height: 200px;
+    background: #4CAF50;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 2s ease-in-out;
+}
+#breath-circle.inhale {
+    transform: scale(1.2);
+}
+#breath-circle.exhale {
+    transform: scale(1);
+}
+#breath-text {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+.timer-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+.duration-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+.timer-controls label {
+    font-size: 1rem;
+    color: #333;
+    white-space: nowrap;
+}
+.timer-controls input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 80px;
+    text-align: center;
+}
+.button-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.button-group button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.button-group button:hover {
+    background: #388E3C;
+    transform: scale(1.05);
+}
+.button-group button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+.timer {
+    text-align: center;
+}
+#timer-display {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+}
+.sounds {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+.sounds h3 {
+    font-family: 'Open Sans', sans-serif;
+    color: #4CAF50;
+    margin-bottom: 0.5rem;
+}
+.sound-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.sound-buttons button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.sound-buttons button:hover {
+    background: #388E3C;
+    transform: scale(1.05);
+}
