@@ -10,9 +10,9 @@ body {
     scroll-behavior: smooth;
 }
 header, footer {
-    background: #4caf50
-    color: white
-    ppadding: 1rem;
+    background: #4caf50;
+    color: white;
+    padding: 1rem;
 }
 nav {
     display: flex;
@@ -35,7 +35,7 @@ nav-links a {
 }
 nav-links a:hover {
     color: #2196f3;
-    transwistion: color 0.3s;
+    transition: color 0.3s;
 }
 .hamburger {
     display: none;
@@ -90,13 +90,13 @@ footer button:hover {
 }
 
 .cover {
-    backgroud: url('./assets/images/cover.jpg') center/cover no-repeat;
-    heeight: 50vh;
+    background: url('./assets/images/cover.jpg') center/cover no-repeat;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    aimation: fadeIn 1s ease-in
+    animation: fadeIn 1s ease-in
 }
 .cover h1 {
     font-family: 'Open Sans', sans-serif;
@@ -107,7 +107,7 @@ footer button:hover {
 }
 .tips {
     text-align: center;
-    padding: 2rem
+    padding: 2rem;
     background: white;
     margin: 1rem;
     border-radius: 8px;
@@ -120,7 +120,7 @@ footer button:hover {
 }
 .tips p {
     font-size: 1.2rem;
-    opacity: 0
+    opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
