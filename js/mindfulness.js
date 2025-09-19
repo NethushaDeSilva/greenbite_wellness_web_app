@@ -124,3 +124,38 @@ function togglePause() {
     startBtn.disabled = true;
 }
 
+function resetTimer() {
+    console.log('Reset button clicked. Resetting timer.');
+    clearInterval(timerInterval);
+    clearInterval(breathInterval);
+    isRunning = false;
+    isPaused = false;
+    const duration = parseInt(document.getElementById('duration').value) || 5;
+    timeLeft = duration * 60;
+    const timerDisplay = document.getElementById('timer-display');
+    const breathCircle = document.getElementById('breath-circle');
+    const breathText = document.getElementById('breath-text');
+    const startBtn = document.getElementById('start-timer');
+    const togglePauseBtn = document.getElementById('toggle-pause');
+    if (!timerDisplay || !breathCircle || !breathText || !startBtn || !togglePauseBtn) {
+        console.error('Reset elements not found.');
+        return;
+    }
+    timerDisplay.textContent = formatTime(timeLeft);
+    breathCircle.classList.remove('inhale', 'exhale');
+    breathText.textContent = 'Inhale...';
+    startBtn.disabled = false;
+    togglePauseBtn.textContent = 'Pause';
+    togglePauseBtn.disabled = true;
+    // Stop all sounds on reset
+    ['rain-sound', 'ocean-sound'].forEach(soundId => {
+        const audio = document.getElementById(`${soundId}-audio`);
+        const button = document.getElementById(soundId);
+        if (audio && !audio.paused) {
+            audio.pause();
+            button.classList.remove('active');
+            button.textContent = `${soundId.replace('-sound', '').replace(/^\w/, c => c.toUpperCase())} (Off)`;
+            console.log(`${soundId} paused on reset.`);
+        }
+    });
+}
