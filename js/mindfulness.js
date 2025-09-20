@@ -12,7 +12,7 @@ function formatTime(seconds) {
 
 function toggleSound(soundId) {
     console.log(`${soundId} button clicked. Toggling sound.`);
-    const sound = document.getElementById(soundId);
+    const button = document.getElementById(soundId);
     const audio = document.getElementById(`${soundId}-audio`);
     if (!button || !audio) {
         console.error(`Sound elements not found for ${soundId}:`, { button, audio });
