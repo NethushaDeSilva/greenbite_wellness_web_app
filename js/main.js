@@ -8,18 +8,18 @@ function saveToLocal(key, value) {
 
 // Hamburger menu toggle
 document.querySelector('.hamburger').addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('nav-active');
+    document.querySelector('.nav-links').classList.toggle('active');
 });
 
 // Newsletter subscription
 document.getElementById('newsletter-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const email = document.getElementById('newsletter-email').value;
-    if (/^\S+@\S+\.\S+$/.test(email)){
-        saveToLocal('subscribers', email);
+    if (/^\S+@\S+\.\S+$/.test(email)) {
+        saveToLocal('newsletter', email);
         alert('Subscribed successfully!');
     } else {
-        alert('Please enter a valid email.');   
+        alert('Please enter a valid email.');
     }
     e.target.reset();
 });

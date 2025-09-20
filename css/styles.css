@@ -80,12 +80,17 @@ footer button:hover {
         background: #4CAF50;
         width: 100%;
         padding: 1rem;
+        z-index: 999;
     }
     .nav-links.active {
         display: flex;
     }
     .hamburger {
         display: block;
+    }
+    nav {
+        position: relative;
+        z-index: 1000;
     }
 }
 
